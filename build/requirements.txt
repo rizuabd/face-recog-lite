@@ -1,0 +1,6 @@
+# versi python pake yang versi 3.11
+tensorflow==2.15.0
+numpy==1.26.4 #asal dibawah <2
+opencv-python==4.9.0.80
+keras-facenet==0.3.2
+scipy
