@@ -177,7 +177,7 @@ if __name__ == "__main__":
     t.start()
 
     # 2. Setup Ngrok
-    if NGROK_AUTH_TOKEN == "PASTE_YOUR_NGROK_TOKEN_HERE":
+    if NGROK_AUTH_TOKEN == "315x5eHq78d0vKKHGAyfeclIGUX_2Arjp6SaCBpUKqekJ2Jk7":
         print("\n[ERROR] PLEASE PASTE YOUR NGROK TOKEN IN THE CODE!\n")
     else:
         conf.get_default().auth_token = NGROK_AUTH_TOKEN
