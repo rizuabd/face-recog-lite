@@ -7,7 +7,7 @@ import numpy as np
 import tflite_runtime.interpreter as tflite
 
 # --- KONFIGURASI ---
-RTSP_URL = "rtsp://admin:idslci123@192.168.0.3:554/h264Preview_01_sub"
+RTSP_URL = "rtsp://192.168.43.1:1935/"
 MODEL_PATH = "model/facenet_128_float32.tflite"
 DB_FILE = "wajah_database.npz"
 
@@ -58,7 +58,7 @@ def main():
         ret, frame = cap.read()
         if not ret: continue
         
-        frame_small = cv2.resize(frame, (640, 360))
+        frame_small = cv2.resize(frame, (720, 1080))
         gray = cv2.cvtColor(frame_small, cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(gray, 1.1, 5)
         target_face = None
