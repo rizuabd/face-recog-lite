@@ -176,14 +176,19 @@ if __name__ == "__main__":
     t.daemon = True
     t.start()
 
-    # 2. Setup Ngrok
-    if NGROK_AUTH_TOKEN == "315x5eHq78d0vKKHGAyfeclIGUX_2Arjp6SaCBpUKqekJ2Jk7":
-        print("\n[ERROR] PLEASE PASTE YOUR NGROK TOKEN IN THE CODE!\n")
-    else:
-        conf.get_default().auth_token = NGROK_AUTH_TOKEN
-        # Open a HTTP tunnel on the default port 5000
+    # 2. Setup Ngrok (Langsung pakai token kamu)
+    # HATI-HATI: Jangan share token ini ke orang lain
+    MY_TOKEN = "315x5eHq78d0vKKHGAyfeclIGUX_2Arjp6SaCBpUKqekJ2Jk7" 
+    
+    conf.get_default().auth_token = MY_TOKEN
+    
+    # Open a HTTP tunnel on the default port 5000
+    try:
         public_url = ngrok.connect(PORT).public_url
         print(f"\n[INFO] 🌍 Public URL: {public_url} \n")
+    except Exception as e:
+        print(f"\n[ERROR] Ngrok failed: {e}")
+        print("Coba matikan script dan jalankan lagi, atau cek koneksi internet.\n")
 
     # 3. Start Flask
     app.run(host="0.0.0.0", port=PORT, debug=False, use_reloader=False)
