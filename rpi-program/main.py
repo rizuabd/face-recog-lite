@@ -11,8 +11,8 @@ import time
 
 # --- CONFIG ---
 # Pilih salah satu URL di bawah ini (Uncomment yang mau dipake)
-RTSP_URL = "rtsp://admin:idslci123@192.168.0.3:554/h264Preview_01_sub"
-# RTSP_URL = 0 # Pakai ini kalau mau test webcam laptop/USB
+# RTSP_URL = "rtsp://admin:idslci123@192.168.0.3:554/h264Preview_01_sub"
+RTSP_URL = 0 # Pakai ini kalau mau test webcam laptop/USB
 
 MODEL_PATH = "model/facenet_128_float32.tflite"
 DB_FILE = "wajah_database.npz"
@@ -110,7 +110,7 @@ def main():
         frame = cam.read()
         if frame is None: continue
 
-        frame_small = cv2.resize(frame, (640, 360))
+        frame_small = cv2.resize(frame, (720, 1080))
         gray = cv2.cvtColor(frame_small, cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(gray, 1.1, 5)
 
